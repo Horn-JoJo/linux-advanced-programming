@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdarg.h>
 int add(int a, ...)
 {
@@ -14,14 +13,8 @@ int add(int a, ...)
 	while (a)
 	{
 		a = va_arg(var_ptr, int);
-		printf("cur_arg_val = %d\n", a);
+//		printf("cur_arg_val = %d\n", a);
 		sum += a;
 	}
 	return sum;
-}
-int main()
-{
-	int res = add(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
-	printf("res = %d\n", res);
-	return 0;
 }
