@@ -32,7 +32,7 @@ int main()
 	{
 		.sin_family = AF_INET,
 		.sin_port = htons(9999),
-		.sin_addr.s_addr = inet_addr("192.168.181.128")
+		.sin_addr.s_addr = inet_addr("192.168.0.103")
 	};
 
 	if (0 > connect(confd, (SA *)&seraddr, sizeof(seraddr)))
