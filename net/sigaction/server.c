@@ -47,10 +47,10 @@ int main()
 	if (0 > listen(listenfd, 15)) err_deal("listen", ERR1);
 
 	struct sigaction act;
-	sigaction(SIGALRM, NULL, &act);
-	act.sa_handler = handler;
-	act.sa_flags &= ~SA_RESTART;
-	sigaction(SIGALRM, &act, NULL);
+	sigaction(SIGALRM, NULL, &act);//获取原有内核的action状态
+	act.sa_handler = handler;//注册触发该信号时需要回调函数来处理
+	act.sa_flags &= ~SA_RESTART;//不重启
+	sigaction(SIGALRM, &act, NULL);//登记到内核中
 
 	while (1)
 	{
